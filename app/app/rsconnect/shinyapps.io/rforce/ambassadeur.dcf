@@ -1,0 +1,12 @@
+name: ambassadeur
+title: ambassadeur
+username:
+account: rforce
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 338099
+bundleId: 1358280
+url: https://rforce.shinyapps.io/ambassadeur/
+when: 1525587117.987
+asMultiple: FALSE
+asStatic: FALSE

@@ -1,0 +1,12 @@
+name: ambassadeur
+title: ambassadeur
+username:
+account: snak
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 338100
+bundleId: 1358285
+url: https://snak.shinyapps.io/ambassadeur/
+when: 1525587469.098
+asMultiple: FALSE
+asStatic: FALSE
