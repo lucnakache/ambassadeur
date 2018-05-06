@@ -4,3 +4,5 @@
   * git bash + git pull
 * Ouvrir main_01_..R et main_02_..R depuis RStudio
 * L'application disponible ici : https://snak.shinyapps.io/ambassadeur/
+
+![Alt text](r1.png?raw=true "Title")
