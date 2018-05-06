@@ -47,10 +47,10 @@ column_author=rep(all_authors,each=length(all_types))
 column_types=rep(all_types,length(all_authors))
 dummy_df=data.frame("author"=column_author,"type"=column_types,"dummy"="check",stringsAsFactors = FALSE)
 basic_stats=merge(x =dummy_df,
-      y=basic_stats,
-      all.x=TRUE,
-      by.x=c("author","type"),
-      by.y=c("exp",".attrs"))
+                  y=basic_stats,
+                  all.x=TRUE,
+                  by.x=c("author","type"),
+                  by.y=c("exp",".attrs"))
 basic_stats[is.na(basic_stats)] = 0
 
 # Add position of cells, matrix plot
@@ -68,11 +68,15 @@ saveRDS(object = basic_stats,
 
 
 # Sauvegarde de basic_stats_t
+# et export
 basic_stats$info=paste(basic_stats$freq," (",basic_stats$p*100,"%)")
 basic_stats_t=dcast(basic_stats[,c("author","type","info")], author ~ type)
 saveRDS(object = basic_stats_t,
         file = paste0(PARAM_data_folder,"basic_stats_t.RDS"))
-
+write.csv(x = basic_stats_t,
+          file = paste0(PARAM_data_folder,"basic_stats_t.csv"),
+          row.names = FALSE,
+          fileEncoding = "UTF-8")
 
 
 # Vizualization
@@ -99,12 +103,12 @@ g1
 a=runif(10, min = 0, max = 1)
 b=runif(10, min = -1, max = 0)
 df=data.frame("p"=c(a,b),
-           "g"=rep(c("a","b"),each=10),
-           "type"=c(letters[1:10],letters[1:10]))
+              "g"=rep(c("a","b"),each=10),
+              "type"=c(letters[1:10],letters[1:10]))
 
 
 g <- ggplot(df,
-             aes(x = as.factor(type), y = p, fill=g)) +
+            aes(x = as.factor(type), y = p, fill=g)) +
   geom_bar(data=df[df$g == "a",] ,stat = "identity") +
   geom_bar( data=df[df$g == "b",] ,stat = "identity") +
   coord_flip() +
@@ -154,7 +158,7 @@ p = p + geom_point(colour = basic_stats$color, size=16, shape=15) +
   ylab("")+
   xlab("") + 
   theme(panel.grid.major = element_blank(),
-          panel.grid.minor = element_blank())
+        panel.grid.minor = element_blank())
 
 p
 ggplotly(p,tooltip = "text")
