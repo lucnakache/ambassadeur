@@ -79,6 +79,29 @@ write.csv(x = basic_stats_t,
           fileEncoding = "UTF-8")
 
 
+
+
+
+# On transpose la table basic_stats_t afin qu'elle soit plus lisible
+# dans l'application shiny
+# Puis on la sauve
+basic_stats_t2=setDT(basic_stats[,c("author","type","p","number_of_paragraphes")])
+names(basic_stats_t2)=c("author","type","p","npara")
+
+
+basic_stats_t2=data.table::dcast(basic_stats_t2,
+           type ~ author ,
+           value.var=c("p","npara"))
+basic_stats_t2=setDF(basic_stats_t2)
+saveRDS(object = basic_stats_t2,
+        file = paste0(PARAM_data_folder,"basic_stats_t2.RDS"))
+write.csv(x = basic_stats_t2,
+          file = paste0(PARAM_data_folder,"basic_stats_t2.csv"),
+          row.names = FALSE,
+          fileEncoding = "UTF-8")
+
+
+
 # Vizualization
 temp_df=basic_stats[basic_stats$author == "DOTEZAC" | basic_stats$author == "GRAMONT",]
 temp_df$p[temp_df$author==unique(temp_df$author)[2]] = -1 * temp_df$p[temp_df$author==unique(temp_df$author)[2]]

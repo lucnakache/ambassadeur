@@ -1,5 +1,5 @@
 # CONFIG
-PARAM_needed_libraries=c("XML","dplyr","ggplot2","plotly","shiny","shinydashboard","reshape2")
+PARAM_needed_libraries=c("XML","dplyr","ggplot2","plotly","shiny","shinydashboard","reshape2","data.table")
 PARAM_data_filename="oridiploxml.xml"
 
 # BUILD PARAMETERS

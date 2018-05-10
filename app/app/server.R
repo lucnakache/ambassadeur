@@ -55,6 +55,6 @@ shinyServer(function(input, output, session) {
   
   
   
-  output$stats_table <- renderDataTable(basic_stats_t)
+  output$stats_table <- renderDataTable(basic_stats_t2)
   
 })
