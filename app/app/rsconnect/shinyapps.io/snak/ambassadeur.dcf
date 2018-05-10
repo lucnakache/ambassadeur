@@ -5,8 +5,8 @@ account: snak
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 338100
-bundleId: 1358285
+bundleId: 1366430
 url: https://snak.shinyapps.io/ambassadeur/
-when: 1525587469.098
+when: 1525945837.861
 asMultiple: FALSE
 asStatic: FALSE

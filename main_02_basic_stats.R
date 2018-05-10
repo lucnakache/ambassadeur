@@ -85,13 +85,13 @@ write.csv(x = basic_stats_t,
 # On transpose la table basic_stats_t afin qu'elle soit plus lisible
 # dans l'application shiny
 # Puis on la sauve
-basic_stats_t2=setDT(basic_stats[,c("author","type","p","number_of_paragraphes")])
-names(basic_stats_t2)=c("author","type","p","npara")
+basic_stats_t2=setDT(basic_stats[,c("author","type","p","freq")])
+names(basic_stats_t2)=c("author","type","p","f")
 
 
 basic_stats_t2=data.table::dcast(basic_stats_t2,
            type ~ author ,
-           value.var=c("p","npara"))
+           value.var=c("p","f"))
 basic_stats_t2=setDF(basic_stats_t2)
 saveRDS(object = basic_stats_t2,
         file = paste0(PARAM_data_folder,"basic_stats_t2.RDS"))
